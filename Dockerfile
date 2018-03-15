@@ -2,12 +2,8 @@ FROM golang:onbuild
 
 MAINTAINER Florian Krone
 
-RUN mkdir /app
+RUN apt-get update -y
 
-ADD . /app/
-
-WORKDIR /app
+RUN apt-get upgrade -y
 
 RUN go build -o main .
-
-CMD ["/app/main"]
